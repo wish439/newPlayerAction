@@ -1,9 +1,11 @@
 enable: true
 newPlayerActions:
   action1:
+    #run_command请不要带/,vars中的run_command请带上/
+    #%player_name%即玩家名字,%player_uuid%"为玩家uuid
     Type: RUN_COMMAND
     Values:
-      - "say %player% 新玩家加入了游戏 %player_uuid%"
+      - "say %player_name% 新玩家加入了游戏 %player_uuid%"
   action2:
     Type: SEND_MESSAGE
     Values:
