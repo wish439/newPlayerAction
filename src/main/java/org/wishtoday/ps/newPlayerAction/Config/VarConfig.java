@@ -56,6 +56,7 @@ public class VarConfig {
         YamlConfiguration loaded = YamlConfiguration.loadConfiguration(varFile);
         ConfigurationSection section = loaded.getConfigurationSection("vars");
         if (section == null) return;
+        components.clear();
         section.getKeys(false).forEach(key -> components.put(key,getComponentFromPath(key, loaded)));
     }
     private static Component getComponentFromPath(String path

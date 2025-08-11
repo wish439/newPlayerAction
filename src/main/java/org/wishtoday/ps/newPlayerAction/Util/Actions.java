@@ -10,32 +10,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum Actions {
-    RUN_COMMAND("run_command",0) {
+    RUN_COMMAND("run_command", 0) {
         @Override
         public void run(Player sender, String command) {
             command = command.replace("%player_uuid%", sender.getUniqueId().toString());
-            command = command.replace("%player%", sender.getName());
+            command = command.replace("%player_name%", sender.getName());
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command);
         }
     },
-    SEND_MESSAGE("send_message",1) {
+    SEND_MESSAGE("send_message", 1) {
         @Override
         public void run(Player player, String message) {
             message = message.replace("%player_uuid%", player.getUniqueId().toString());
-            message = message.replace("%player%", player.getName());
+            message = message.replace("%player_name%", player.getName());
             TextComponent text = Component.text(message);
             Component component = VarConfig.tryParsePlaceholders(text);
             player.sendMessage(component);
         }
     };
+
     public abstract void run(Player player, String message);
+
     private String name;
     private int index;
     private static Map<Integer, Actions> map = new HashMap<>();
+
     Actions(String name, int index) {
         this.name = name;
         this.index = index;
     }
+
     static {
         for (Actions value : values()) {
             map.put(value.index, value);
@@ -45,6 +49,7 @@ public enum Actions {
     public String getName() {
         return name;
     }
+
     public int getIndex() {
         return index;
     }

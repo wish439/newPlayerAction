@@ -8,6 +8,7 @@ import org.wishtoday.ps.newPlayerAction.Config.Config;
 public class PlayerJoinEvent implements Listener {
     @EventHandler
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent event) {
+        if (!Config.isEnable()) return;
         Player player = event.getPlayer();
         Config.getAllAction();
         Config.configActions.forEach(action -> {
