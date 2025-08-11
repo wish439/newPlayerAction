@@ -1,0 +1,10 @@
+enable: true
+newPlayerActions:
+  action1:
+    Type: RUN_COMMAND
+    Values:
+      - "say %player% 新玩家加入了游戏 %player_uuid%"
+  action2:
+    Type: SEND_MESSAGE
+    Values:
+      - "hello %example%"

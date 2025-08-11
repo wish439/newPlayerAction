@@ -1,0 +1,4 @@
+name: newPlayerAction
+version: '1.0'
+main: org.wishtoday.ps.newPlayerAction.NewPlayerAction
+api-version: '1.21'
